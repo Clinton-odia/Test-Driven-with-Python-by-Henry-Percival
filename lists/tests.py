@@ -39,3 +39,7 @@ class HomePageTest(TestCase):
         self.assertContains(response, "<title>To-Do lists</title>")
         self.assertContains(response, "<html>")
         self.assertContains(response, "</html>")
+
+    def test_home_page_template(self):
+        response = self.client.get("/")
+        self.assertTemplateUsed(response, "home.html")
